@@ -1,18 +1,20 @@
 <template>
   <div id="app" class="container">
-    <h1>Hello, Vue.js!</h1>
-    <img src="./assets/logo.png">
+    <h3 class="mb-4">My Finance Manager :: Transactions</h3>
+    <TransactionHeader/>
     <Transaction/>
   </div>
 </template>
 
 <script>
 import Transaction from './components/Transaction.vue';
+import TransactionHeader from './components/TransactionHeader.vue';
 
 export default {
   name: 'app',
   components: {
     Transaction,
+    TransactionHeader,
   },
 };
 </script>
@@ -22,7 +24,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
