@@ -9,7 +9,7 @@
       <div class="col-3">
           {{ transaction.category }}
       </div>
-      <div class="col-2">
+      <div class="col-2" :class="[isIncome ? 'text-success' : 'text-danger']">
           {{ formatAmount(transaction.amount) }}
       </div>
   </div>
@@ -24,6 +24,11 @@ export default {
     transaction: {
       required: true,
       type: Object,
+    },
+  },
+  computed: {
+    isIncome() {
+      return this.transaction.amount > 0;
     },
   },
   methods: {
