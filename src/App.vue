@@ -2,12 +2,18 @@
   <div id="app">
     <h1>Hello, Vue.js!</h1>
     <img src="./assets/logo.png">
+    <Transaction/>
   </div>
 </template>
 
 <script>
+import Transaction from './components/Transaction.vue';
+
 export default {
   name: 'app',
+  components: {
+    Transaction,
+  },
 };
 </script>
 
