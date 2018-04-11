@@ -1,7 +1,7 @@
 <template>
   <div class="row py-2">
       <div class="col-2">
-          {{ transaction.date }}
+          {{ formatDate(transaction.date) }}
       </div>
       <div class="col-4">
           {{ transaction.merchant }}
@@ -10,23 +10,33 @@
           {{ transaction.category }}
       </div>
       <div class="col-2">
-          € {{ transaction.amount }}
+          {{ formatAmount(transaction.amount) }}
       </div>
   </div>
 </template>
 
 <script>
+import dateformat from 'dateformat';
+
 export default {
   name: 'transaction',
   data() {
     return {
       transaction: {
-        date: '4 Apr',
+        date: Date.parse('2018-04-02'),
         merchant: 'Asociatia Clujsters',
         category: 'Education',
         amount: 99.99,
       },
     };
+  },
+  methods: {
+    formatDate(date) {
+      return dateformat(date, 'd mmm');
+    },
+    formatAmount(amount) {
+      return `€ ${amount}`;
+    },
   },
 };
 </script>
