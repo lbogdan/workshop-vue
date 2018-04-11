@@ -20,15 +20,11 @@ import dateformat from 'dateformat';
 
 export default {
   name: 'transaction',
-  data() {
-    return {
-      transaction: {
-        date: Date.parse('2018-04-02'),
-        merchant: 'Asociatia Clujsters',
-        category: 'Education',
-        amount: 99.99,
-      },
-    };
+  props: {
+    transaction: {
+      required: true,
+      type: Object,
+    },
   },
   methods: {
     formatDate(date) {

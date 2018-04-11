@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <h3 class="mb-4">My Finance Manager :: Transactions</h3>
     <TransactionHeader/>
-    <Transaction/>
+    <Transaction :transaction="transaction"/>
   </div>
 </template>
 
@@ -15,6 +15,16 @@ export default {
   components: {
     Transaction,
     TransactionHeader,
+  },
+  data() {
+    return {
+      transaction: {
+        date: Date.parse('2018-04-02'),
+        merchant: 'Asociatia Clujsters',
+        category: 'Education',
+        amount: 99.99,
+      },
+    };
   },
 };
 </script>
