@@ -4,12 +4,14 @@
       Total{{ category !== '' ? ` ${category}` : '' }}:
     </div>
     <div class="col-2">
-      € {{ total }}
+      {{ formatAmount(total) }}
     </div>
   </div>
 </template>
 
 <script>
+import { formatAmount } from '../formatters';
+
 export default {
   name: 'transaction-total',
   props: {
@@ -21,6 +23,9 @@ export default {
       required: true,
       type: Number,
     },
+  },
+  methods: {
+    formatAmount,
   },
 };
 </script>

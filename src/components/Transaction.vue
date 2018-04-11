@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import dateformat from 'dateformat';
+import { formatDate, formatAmount } from '../formatters';
 
 export default {
   name: 'transaction',
@@ -32,12 +32,8 @@ export default {
     },
   },
   methods: {
-    formatDate(date) {
-      return dateformat(date, 'd mmm');
-    },
-    formatAmount(amount) {
-      return `€ ${amount.toFixed(2)}`;
-    },
+    formatDate,
+    formatAmount,
   },
 };
 </script>
