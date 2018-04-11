@@ -31,7 +31,7 @@ export default {
       return dateformat(date, 'd mmm');
     },
     formatAmount(amount) {
-      return `€ ${amount}`;
+      return `€ ${amount.toFixed(2)}`;
     },
   },
 };
