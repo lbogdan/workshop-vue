@@ -1,26 +1,14 @@
-const transactions = [
-  {
-    id: 1,
-    date: Date.parse('2018-04-02'),
-    merchant: 'Asociatia Clujsters',
-    category: 'Education',
-    amount: 99.99,
-  },
-  {
-    id: 2,
-    date: Date.parse('2018-04-04'),
-    merchant: 'Casa Boema',
-    category: 'Food & Dining',
-    amount: 25.0,
-  },
-];
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:8090/api',
+});
 
 export default {
   transactions: {
-    get() {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(transactions), 1500);
-      });
+    async get() {
+      const { data } = await api.get('transactions');
+      return data;
     },
   },
 };
