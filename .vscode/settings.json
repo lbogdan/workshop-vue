@@ -1,0 +1,15 @@
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "vue",
+            "autoFix": true
+        }
+    ],
+    "vetur.validation.script": false,
+    "vetur.validation.template": false,
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "editor.tabSize": 2
+}

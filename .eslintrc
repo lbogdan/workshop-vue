@@ -1,7 +1,9 @@
 {
   "root": true,
-  "extends": [
-    "plugin:vue/essential",
-    "@vue/airbnb"
-  ]
+  "extends": ["plugin:vue/essential", "@vue/airbnb"],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "arrow-parens": ["error", "always"],
+    "function-paren-newline": "off"
+  }
 }
