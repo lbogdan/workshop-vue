@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h1>Hello, Vue.js!</h1>
     <img src="./assets/logo.png">
     <Transaction/>
