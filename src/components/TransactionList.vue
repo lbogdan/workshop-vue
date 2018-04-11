@@ -16,12 +16,21 @@
       <div v-if="loading" class="text-center my-4">
         <PulseLoader color="#2c3e50"/>
       </div>
-      <Transaction
-        v-else
-        v-for="transaction in filteredTransactions"
-        :transaction="transaction"
-        :key="transaction.id"
-      />
+      <template v-else>
+        <Transaction
+          v-for="transaction in filteredTransactions"
+          :transaction="transaction"
+          :key="transaction.id"
+        />
+        <div class="row py-2 font-weight-bold" key="">
+            <div class="col-2 offset-7">
+              Total{{ filterCategory !== '' ? ` ${filterCategory}` : '' }}:
+            </div>
+            <div class="col-2">
+              € {{ totalAmount }}
+            </div>
+        </div>
+      </template>
   </div>
 </template>
 
@@ -63,6 +72,12 @@ export default {
       }
       return this.transactions.filter(
         (transaction) => transaction.category === this.filterCategory,
+      );
+    },
+    totalAmount() {
+      return this.filteredTransactions.reduce(
+        (sum, transaction) => sum + transaction.amount,
+        0,
       );
     },
   },
