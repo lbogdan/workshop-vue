@@ -22,14 +22,10 @@
           :transaction="transaction"
           :key="transaction.id"
         />
-        <div class="row py-2 font-weight-bold" key="">
-            <div class="col-2 offset-7">
-              Total{{ filterCategory !== '' ? ` ${filterCategory}` : '' }}:
-            </div>
-            <div class="col-2">
-              € {{ totalAmount }}
-            </div>
-        </div>
+        <TransactionTotal
+          :category="filterCategory"
+          :total="totalAmount"
+        />
       </template>
   </div>
 </template>
@@ -39,6 +35,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 import TransactionHeader from './TransactionHeader.vue';
 import Transaction from './Transaction.vue';
+import TransactionTotal from './TransactionTotal.vue';
 import categories from '../data/categories';
 
 export default {
@@ -46,6 +43,7 @@ export default {
   components: {
     TransactionHeader,
     Transaction,
+    TransactionTotal,
     PulseLoader,
   },
   data() {
