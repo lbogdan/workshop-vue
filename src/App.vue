@@ -1,24 +1,17 @@
 <template>
   <div id="app" class="container">
     <h3 class="mb-4">My Finance Manager :: Transactions</h3>
-    <TransactionHeader/>
-    <Transaction
-      v-for="transaction in transactions"
-      :transaction="transaction"
-      :key="transaction.id"
-    />
+    <TransactionList :transactions="transactions"/>
   </div>
 </template>
 
 <script>
-import Transaction from './components/Transaction.vue';
-import TransactionHeader from './components/TransactionHeader.vue';
+import TransactionList from './components/TransactionList.vue';
 
 export default {
   name: 'app',
   components: {
-    Transaction,
-    TransactionHeader,
+    TransactionList,
   },
   data() {
     return {
