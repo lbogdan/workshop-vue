@@ -13,5 +13,12 @@ export default {
     remove(id) {
       return api.delete(`transactions/${id}`);
     },
+    create(transaction) {
+      const { amount, ...rest } = transaction;
+      return api.post('transactions', {
+        amount: parseFloat(amount),
+        ...rest,
+      });
+    },
   },
 };

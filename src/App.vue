@@ -6,17 +6,20 @@
       :transactions="transactions"
       @delete="onDelete"
     />
+    <TransactionForm @submit="onSubmit"/>
   </div>
 </template>
 
 <script>
 import TransactionList from './components/TransactionList.vue';
+import TransactionForm from './components/TransactionForm.vue';
 import api from './api';
 
 export default {
   name: 'app',
   components: {
     TransactionList,
+    TransactionForm,
   },
   data() {
     return {
@@ -32,6 +35,10 @@ export default {
       this.loading = true;
       this.transactions = await api.transactions.get();
       this.loading = false;
+    },
+    async onSubmit(transaction) {
+      await api.transactions.create(transaction);
+      this.loadTransactions();
     },
     async onDelete(transaction) {
       await api.transactions.remove(transaction.id);
