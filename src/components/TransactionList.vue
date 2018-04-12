@@ -21,6 +21,7 @@
           v-for="transaction in filteredTransactions"
           :transaction="transaction"
           :key="transaction.id"
+          v-on="$listeners"
         />
         <TransactionTotal
           :category="filterCategory"

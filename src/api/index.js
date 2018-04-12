@@ -10,5 +10,8 @@ export default {
       const { data } = await api.get('transactions');
       return data;
     },
+    remove(id) {
+      return api.delete(`transactions/${id}`);
+    },
   },
 };

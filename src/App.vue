@@ -4,6 +4,7 @@
     <TransactionList
       :loading="loading"
       :transactions="transactions"
+      @delete="onDelete"
     />
   </div>
 </template>
@@ -31,6 +32,10 @@ export default {
       this.loading = true;
       this.transactions = await api.transactions.get();
       this.loading = false;
+    },
+    async onDelete(transaction) {
+      await api.transactions.remove(transaction.id);
+      this.loadTransactions();
     },
   },
 };
