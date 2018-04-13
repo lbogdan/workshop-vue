@@ -1,16 +1,16 @@
 <template>
-  <div class="row">
+  <div class="row py-2">
       <div class="col-2">
-          2 Apr
+          {{ transaction.date }}
       </div>
       <div class="col-4">
-          Asociatia Clujsters
+          {{ transaction.merchant }}
       </div>
       <div class="col-3">
-          Education
+          {{ transaction.category }}
       </div>
       <div class="col-2">
-          € 99.99
+          € {{ transaction.amount }}
       </div>
   </div>
 </template>
@@ -18,5 +18,15 @@
 <script>
 export default {
   name: 'transaction',
+  data() {
+    return {
+      transaction: {
+        date: '4 Apr',
+        merchant: 'Asociatia Clujsters',
+        category: 'Education',
+        amount: 99.99,
+      },
+    };
+  },
 };
 </script>
