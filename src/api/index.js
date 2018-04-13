@@ -20,5 +20,12 @@ export default {
         ...rest,
       });
     },
+    update(transaction) {
+      const { id, amount, ...rest } = transaction;
+      return api.put(`transactions/${id}`, {
+        amount: parseFloat(amount),
+        ...rest,
+      });
+    },
   },
 };

@@ -5,8 +5,9 @@
       :loading="loading"
       :transactions="transactions"
       @delete="onDelete"
+      @submit="onSubmit"
     />
-    <TransactionForm @submit="onSubmit"/>
+    <TransactionForm class="mt-4" @submit="onSubmit"/>
   </div>
 </template>
 
@@ -37,7 +38,11 @@ export default {
       this.loading = false;
     },
     async onSubmit(transaction) {
-      await api.transactions.create(transaction);
+      if ('id' in transaction) {
+        await api.transactions.update(transaction);
+      } else {
+        await api.transactions.create(transaction);
+      }
       this.loadTransactions();
     },
     async onDelete(transaction) {

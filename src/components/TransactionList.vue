@@ -13,21 +13,31 @@
         </div>
       </div>
       <TransactionHeader/>
-      <div v-if="loading" class="text-center my-4">
-        <PulseLoader color="#2c3e50"/>
-      </div>
-      <template v-else>
+      <template v-for="transaction in filteredTransactions">
         <Transaction
-          v-for="transaction in filteredTransactions"
+          v-if="transaction.id !== editingId"
           :transaction="transaction"
           :key="transaction.id"
           v-on="$listeners"
+          @edit="onEdit"
         />
-        <TransactionTotal
-          :category="filterCategory"
-          :total="totalAmount"
+        <TransactionForm
+          v-else
+          :key="transaction.id"
+          :transaction="transaction"
+          v-on="$listeners"
+          @cancel="editingId = null"
+          @submit="onSubmit"
         />
       </template>
+      <TransactionTotal
+        v-if="transactions.length > 0"
+        :category="filterCategory"
+        :total="totalAmount"
+      />
+      <div v-if="loading" class="text-center my-4">
+        <PulseLoader color="#2c3e50"/>
+      </div>
   </div>
 </template>
 
@@ -37,6 +47,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import TransactionHeader from './TransactionHeader.vue';
 import Transaction from './Transaction.vue';
 import TransactionTotal from './TransactionTotal.vue';
+import TransactionForm from './TransactionForm.vue';
 import categories from '../data/categories';
 
 export default {
@@ -45,12 +56,14 @@ export default {
     TransactionHeader,
     Transaction,
     TransactionTotal,
+    TransactionForm,
     PulseLoader,
   },
   data() {
     return {
       categories,
       filterCategory: '',
+      editingId: null,
     };
   },
   props: {
@@ -78,6 +91,15 @@ export default {
         (sum, transaction) => sum + transaction.amount,
         0,
       );
+    },
+  },
+  methods: {
+    onEdit(transaction) {
+      this.editingId = transaction.id;
+    },
+    onSubmit(transaction) {
+      this.$emit('submit', transaction);
+      this.editingId = null;
     },
   },
 };

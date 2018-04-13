@@ -1,5 +1,5 @@
 <template functional>
-  <div class="row font-weight-bold border-bottom pb-1">
+  <div class="row font-weight-bold border-bottom pb-1 mb-2">
       <div class="col-2">
           Date
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="row py-2">
+  <div class="row py-2" @click="onRowClick">
       <div class="col-2">
           {{ formatDate(transaction.date) }}
       </div>
@@ -15,7 +15,7 @@
       <div class="col-1">
         <button
           class="btn btn-primary btn-sm"
-          @click="$emit('delete', transaction)"
+          @click="onDeleteClick"
         >
           Delete
         </button>
@@ -42,6 +42,13 @@ export default {
   methods: {
     formatDate,
     formatAmount,
+    onDeleteClick(event) {
+      event.stopPropagation();
+      this.$emit('delete', this.transaction);
+    },
+    onRowClick() {
+      this.$emit('edit', this.transaction);
+    },
   },
 };
 </script>
