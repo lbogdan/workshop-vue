@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import 'bootstrap/dist/css/bootstrap.css';
+
 import App from './App.vue';
 
 Vue.config.productionTip = false;
