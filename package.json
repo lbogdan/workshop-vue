@@ -18,6 +18,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "dateformat": "^3.0.3",
+    "flatpickr": "^4.4.4",
     "vue-spinner": "^1.0.3",
     "vue-template-compiler": "^2.5.13"
   },

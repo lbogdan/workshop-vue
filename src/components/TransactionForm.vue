@@ -2,9 +2,8 @@
   <div @keyup.esc="onEsc" @keyup.enter="onClick">
     <div class="row">
       <div class="col-2">
-        <input
+        <Flatpickr
           v-model="formTransaction.date"
-          type="text"
           class="form-control"
           placeholder="Date"
         />
@@ -51,6 +50,7 @@
 </template>
 
 <script>
+import Flatpickr from './Flatpickr.vue';
 import categories from '../data/categories';
 
 const emptyTransaction = {
@@ -62,6 +62,9 @@ const emptyTransaction = {
 
 export default {
   name: 'transaction-form',
+  components: {
+    Flatpickr,
+  },
   data() {
     return {
       categories,
