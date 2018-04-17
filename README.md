@@ -1,3 +1,34 @@
+## Setup
+
+```
+git clone https://github.com/lbogdan/worskshop-vue.git
+
+cd workshop-vue
+
+git checkout step0
+
+yarn
+
+yarn serve
+```
+
+## Repo tags
+
+* step0 - project setup
+* step1 - added Bootstrap
+* step2 - added Transaction component
+* step3 - added TransactionHeader component
+* step4 - moved data to parent
+* step5 - transaction list
+* step6 - added mock API and loading indicator
+* step7 - replaced mock API with real API
+* step8 - added category filter
+* step9 - added total
+* step10 - added deleting
+* step11 - added creating
+* step12 - added editing
+* step14 - added date picker
+
 ## Configuring Visual Studio Code
 
 Create the following files in the project folder:
