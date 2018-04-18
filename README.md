@@ -5,9 +5,9 @@ git clone https://github.com/lbogdan/worskshop-vue.git
 
 cd workshop-vue
 
-git checkout step0
-
 yarn
+
+git checkout step0
 
 yarn serve
 ```
